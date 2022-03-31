@@ -4,6 +4,8 @@
 import tkinter as tk
 import random as rd
 from functools import partial
+from tkinter.ttk import Button
+from turtle import color
 
 #############################
 # Définition des constantes #
@@ -91,18 +93,20 @@ def affichage_widget(racine, canvas):
                                                  racine, canvas)
     # création des boutons
     bouton_config_aleatoire = tk.Button(
-        racine, text="Configuration aléatoire", command=config_aleatoire_no_args)
+        racine, text="Configuration aléatoire",
+        command=config_aleatoire_no_args)
     bouton_commencer_config_aleatoire = tk.Button(
         racine, text="Commencer", command=commencer_config_aleatoire_no_args)
     bouton_quitter = tk.Button(racine, text='Quitter', command=racine.quit)
     bouton_effacer_tas_de_sable = tk.Button(
         racine, text='Effacer', command=config_vide_no_args)
+    bouton_editer_grains = tk.Button()
     # placement des widgets
-    canvas.grid(column=0, row=1)
-    bouton_config_aleatoire.grid(row=0, column=1)
-    bouton_commencer_config_aleatoire.grid(row=1, column=1)
-    bouton_quitter.grid(row=2, ipadx=50)
-    bouton_effacer_tas_de_sable.grid(row=2, column=1)
+    canvas.grid(column=1, row=1, rowspan=4)
+    bouton_config_aleatoire.grid(row=1)
+    bouton_commencer_config_aleatoire.grid(row=2)
+    bouton_effacer_tas_de_sable.grid(row=3)
+    bouton_quitter.grid(row=4)
 
 
 def generation_grille(canvas):
@@ -148,3 +152,8 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+# couleur pour les configurations
+# Bouton éditer pour créer son propre tas de sable avec input user
+# Sauvegarder une configuration
+# Charger une configuration
